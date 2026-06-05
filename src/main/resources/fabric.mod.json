@@ -1,0 +1,22 @@
+{
+	"schemaVersion": 1,
+	"id": "anubisproject",
+	"version": "1.0.0",
+	"name": "Anubis Finder",
+	"description": "DonutSMP X-Ray & Coordinate Logger",
+	"authors": ["Reis"],
+	"contact": {},
+	"license": "MIT",
+	"icon": "assets/anubisproject/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"org.example.AnubisFinderMod"
+		]
+	},
+	"mixins": [],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "1.20.1"
+	}
+}

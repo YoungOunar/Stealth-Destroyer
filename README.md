@@ -1,2 +1,9 @@
-# Stealth-Destroyer
-Stealth Destroyer: Advanced Memory &amp; Cache Management. Designed for resource-heavy singleplayer environments. Optimizes performance via real-time cache purging.  Key Feature: 'M' key triggers a Panic Reset for immediate memory cleanup and garbage collection.  Purpose: Stable testing for intensive custom world configurations. (Made İn Turkey)
+# Example Mod
+
+## Setup
+
+For setup instructions, please see the [Fabric Documentation page](https://docs.fabricmc.net/develop/getting-started/creating-a-project#setting-up) related to the IDE that you are using.
+
+## License
+
+This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.

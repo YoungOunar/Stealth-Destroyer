@@ -1,0 +1,51 @@
+plugins {
+	id 'fabric-loom' version '1.4-SNAPSHOT'
+	id 'maven-publish'
+}
+
+version = '1.0.0'
+group = 'org.example'
+
+base {
+	// Bilgisayarda duran ham proje adı kalabilir
+	archivesName = 'anubisproject'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:1.20.1"
+	mappings "net.fabricmc:yarn:1.20.1+build.10:v2"
+	modImplementation "net.fabricmc:fabric-loader:0.15.11"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:0.87.0+1.20.1"
+}
+
+processResources {
+	inputs.property "version", project.version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": project.version
+	}
+}
+
+// --- KOD KORUMA VE MODRINTH DOSYA AYARLARI BURADAN BAŞLIYOR ---
+
+remapJar {
+	// Modrinth'e yüklenecek olan korumalı son dosyanın adını konsepte uyduruyoruz
+	archiveFileName = "load-my-f-ores-${project.version}.jar"
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 17
+	// Kod derlenirken dil ayarlarını ve karakterleri sağlama alıyoruz
+	it.options.encoding = "UTF-8"
+}
+
+// Kaynak kodlarının (açık kodların) dışarıya jar olarak çıkmasını engelliyoruz
+// Eski dosyandaki "withSourcesJar()" komutunu sildik ki kimse açık kodları çekemesin!
+java {
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
